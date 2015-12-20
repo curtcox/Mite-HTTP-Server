@@ -15,7 +15,7 @@ public abstract class AbstractRequestHandler
         HTTPRequest httpRequest = HTTPRequest.parse(request);
         Writer writer = new OutputStreamWriter(out);
         String page = handle(httpRequest);
-        if (httpRequest.MIMEAware) {
+        if (httpRequest.httpVersion.mimeAware) {
             ContentType.HTML.writeMIMEHeader(writer, StatusCode.OK, page.length());
         }
         writer.write(page);

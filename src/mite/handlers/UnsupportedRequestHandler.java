@@ -32,7 +32,7 @@ public final class UnsupportedRequestHandler
     {
         Writer writer = new OutputStreamWriter(out);
         String page = NOT_IMPLEMENTED_PAGE;
-        if (HTTPVersion.isMIMEAware(request)) {
+        if (HTTPVersion.fromRequest(request).mimeAware) {
             ContentType.HTML.writeMIMEHeader(writer, StatusCode.NOT_IMPLEMENTED, page.length());
         }
         writer.write(page);

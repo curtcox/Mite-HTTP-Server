@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.*;
 
 /**
- * This interface is used to define what a GenericHTTPServer does.
+ * This interface is used to define what a HTTP Server does.
  */
 public interface RequestHandler {
 
@@ -16,7 +16,7 @@ public interface RequestHandler {
     /**
      * Handle this request.
      * Note that this method may well be called again from a different
-     * thread before it return.  It is the responsibility of the implementer to
+     * thread before it returns.  It is the responsibility of the implementer to
      * ensure that that doesn't cause any problems.
      */
     void handle(String request, Socket socket, InputStream in, OutputStream out) throws IOException;

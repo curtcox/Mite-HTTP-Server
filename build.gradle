@@ -7,6 +7,24 @@ version = '0.1'
 group = "com.github.curtcox"
 archivesBaseName = "Mite"
 
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
 jar {
     manifest {
         attributes 'Implementation-Title': 'Mite',
@@ -45,6 +63,30 @@ uploadArchives {
       pom.project {
         name 'Mite'
         packaging 'jar'
+
+        description 'Minimal HTTP server.'
+        url 'https://github.com/curtcox/Mite-HTTP-Server/'
+
+        scm {
+          connection 'https://github.com/curtcox/Mite-HTTP-Server/'
+          developerConnection 'https://github.com/curtcox/Mite-HTTP-Server/'
+          url 'https://github.com/curtcox/Mite-HTTP-Server/'
+        }
+
+        licenses {
+          license {
+            name 'Mite License'
+            url 'https://github.com/curtcox/Mite-HTTP-Server/blob/master/LICENSE'
+          }
+        }
+
+        developers {
+          developer {
+            id 'curtcox'
+            name 'Curt Cox'
+            email 'curtcox@gmail.com'
+          }
+        }
       }
     }
   }

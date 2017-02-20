@@ -1,12 +1,8 @@
 package mite.handlers;
 
-import mite.ContentType;
-import mite.HTTPRequest;
-import mite.RequestHandler;
-import mite.StatusCode;
-
+import mite.*;
 import java.io.*;
-import java.net.Socket;
+import java.net.*;
 
 public abstract class AbstractRequestHandler
     implements RequestHandler

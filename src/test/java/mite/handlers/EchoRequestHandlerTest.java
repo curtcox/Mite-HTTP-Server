@@ -1,11 +1,8 @@
 package mite.handlers;
 
-import mite.HTTPRequest;
-import mite.RequestHandler;
+import mite.*;
 import org.junit.Test;
-
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class EchoRequestHandlerTest {
 

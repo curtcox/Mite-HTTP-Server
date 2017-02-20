@@ -1,13 +1,9 @@
 package mite;
 
-import mite.handlers.CompositeRequestHandler;
-import mite.handlers.EchoRequestHandler;
-import mite.handlers.UnsupportedRequestHandler;
-
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import mite.handlers.*;
+import java.io.*;
+import java.net.*;
+import java.util.concurrent.*;
 
 /**
  * Opens a server socket and hands off any requests to another thread.

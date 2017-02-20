@@ -1,13 +1,9 @@
 package mite.handlers;
 
-import mite.HTTPRequest;
-import mite.RequestHandler;
+import mite.*;
 import org.junit.Test;
-
-import java.io.IOException;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import java.io.*;
+import static org.junit.Assert.*;
 
 public class AbstractRequestHandlerTest {
 

@@ -1,9 +1,7 @@
 package mite;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
+import java.io.*;
+import java.net.*;
 
 /**
  * This interface is used to define what a GenericHTTPServer does.

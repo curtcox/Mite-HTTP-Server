@@ -1,6 +1,6 @@
 package mite;
 
-import java.util.StringTokenizer;
+import java.util.*;
 
 /**
  * HTTP version.

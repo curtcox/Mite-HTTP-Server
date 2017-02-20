@@ -1,8 +1,7 @@
 package mite;
 
-import java.io.IOException;
-import java.io.Writer;
-import java.util.Date;
+import java.io.*;
+import java.util.*;
 
 /**
  * MIME types

@@ -16,9 +16,9 @@ public final class EchoRequestHandler
 
     private EchoRequestHandler() {}
 
-    protected String handle(HTTPRequest request) throws IOException {
+    public HTTPResponse handle(HTTPRequest request) throws IOException {
         String R = "\r";
-        return "<html>" +
+        String html = "<html>" +
                   "<body>" +
                       "<pre>" +
                           "request =" + request          + R +
@@ -27,10 +27,7 @@ public final class EchoRequestHandler
                       "</pre>" +
                   "</body>" +
                "</html>";
-    }
-
-    protected boolean handles(HTTPRequest request) {
-        return true;
+        return HTTPResponse.of(html,StatusCode.OK);
     }
 
 }

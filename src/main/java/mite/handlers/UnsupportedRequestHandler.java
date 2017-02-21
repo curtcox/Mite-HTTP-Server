@@ -8,7 +8,7 @@ import java.net.*;
  * To report to the client that the request is unsupported.
  */
 public final class UnsupportedRequestHandler
-    implements RequestHandler
+    implements HTTPRequestHandler
 {
 
     public static UnsupportedRequestHandler of() {
@@ -23,19 +23,13 @@ public final class UnsupportedRequestHandler
                     "<BODY> <H1>HTTP Error 501: Not Implemented</H1> </BODY>" +
             "</HTML>";
 
-    public void handle(String request, Socket socket, InputStream in, OutputStream out)
+    public HTTPResponse handle(HTTPRequest request)
         throws IOException
     {
-        Writer writer = new OutputStreamWriter(out);
-        String page = NOT_IMPLEMENTED_PAGE;
-        if (HTTPVersion.fromRequest(request).mimeAware) {
-            ContentType.HTML.writeMIMEHeader(writer, StatusCode.NOT_IMPLEMENTED, page.length());
-        }
-        writer.write(page);
-        writer.close();
+        return HTTPResponse.of(NOT_IMPLEMENTED_PAGE,StatusCode.NOT_IMPLEMENTED);
     }
 
-    public boolean handles(String request) {
+    public boolean handles(HTTPRequest request) {
         return true;
     }
 

@@ -15,14 +15,15 @@ public class EchoRequestHandlerTest {
 
     @Test
     public void is_RequestHandler() {
-        assertTrue(handler instanceof RequestHandler);
+        assertTrue(handler instanceof HTTPRequestHandler);
     }
 
     @Test
     public void response_contains_request_components() throws Exception {
         HTTPRequest request = HTTPRequest.parse("GET /monkey.png");
-        String response = handler.handle(request);
-        assertTrue(response.contains("GET"));
-        assertTrue(response.contains("monkey.png"));
+        HTTPResponse response = handler.handle(request);
+        String page = response.page;
+        assertTrue(page.contains("GET"));
+        assertTrue(page.contains("monkey.png"));
     }
 }

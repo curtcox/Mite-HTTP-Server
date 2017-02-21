@@ -8,32 +8,32 @@ import java.net.*;
  * Handler that defers to other handlers.
  */
 public final class CompositeRequestHandler
-    implements RequestHandler
+    implements HTTPRequestHandler
 {
 
-    public static CompositeRequestHandler of(RequestHandler... handlers) {
+    public static CompositeRequestHandler of(HTTPRequestHandler... handlers) {
         return new CompositeRequestHandler(handlers);
     }
 
-    private final RequestHandler[] handlers;
+    private final HTTPRequestHandler[] handlers;
 
-    private CompositeRequestHandler(RequestHandler... handlers) {
+    private CompositeRequestHandler(HTTPRequestHandler... handlers) {
         this.handlers = handlers;
     }
 
-    public void handle(String request, Socket socket, InputStream in, OutputStream out)
+    public HTTPResponse handle(HTTPRequest request)
         throws IOException
     {
-        for (RequestHandler handler : handlers) {
+        for (HTTPRequestHandler handler : handlers) {
             if (handler.handles(request)) {
-                handler.handle(request, socket, in, out);
-                return;
+                return handler.handle(request);
             }
         }
+        return null;
     }
 
-    public boolean handles(String request) {
-        for (RequestHandler handler : handlers) {
+    public boolean handles(HTTPRequest request) {
+        for (HTTPRequestHandler handler : handlers) {
             if (handler.handles(request)) {
                 return true;
             }

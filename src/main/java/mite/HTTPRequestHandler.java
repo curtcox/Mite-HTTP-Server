@@ -6,12 +6,12 @@ import java.net.*;
 /**
  * This interface is used to define what a HTTP Server does.
  */
-public interface RequestHandler {
+public interface HTTPRequestHandler {
 
     /**
      * Return true if this handler handles this request.
      */
-    boolean handles(String request);
+    boolean handles(HTTPRequest request);
 
     /**
      * Handle this request.
@@ -19,6 +19,6 @@ public interface RequestHandler {
      * thread before it returns.  It is the responsibility of the implementer to
      * ensure that that doesn't cause any problems.
      */
-    void handle(String request, Socket socket, InputStream in, OutputStream out) throws IOException;
+    HTTPResponse handle(HTTPRequest request) throws IOException;
 
 }

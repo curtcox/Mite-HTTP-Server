@@ -13,21 +13,26 @@ public final class MiteHTTPServer
 {
 
     private final ServerSocket server;
-    private final RequestHandler handler;
+    private final SocketRequestHandler handler;
     private final Executor executor = Executors.newFixedThreadPool(3);
-    static final String NAME = "MiteHTTPServer 0.1";
+    static  final String NAME = "MiteHTTPServer 0.1";
 
-    public MiteHTTPServer(int port, RequestHandler handler)
+    public MiteHTTPServer(int port, SocketRequestHandler handler)
         throws IOException
     {
         this.server = new ServerSocket(port);
         this.handler = handler;
     }
 
+    private static SocketRequestHandler handler() {
+        return SocketRequestHandler.of(
+                 CompositeRequestHandler.of(
+                     EchoRequestHandler.of(), UnsupportedRequestHandler.of()));
+    }
+
     private static void startListeningOnPort(int port) throws IOException {
         log("Accepting connections on port " + port);
-        RequestHandler handler = CompositeRequestHandler.of(EchoRequestHandler.of(), UnsupportedRequestHandler.of());
-        MiteHTTPServer server = new MiteHTTPServer(port,handler);
+        MiteHTTPServer server = new MiteHTTPServer(port,handler());
         server.start();
     }
 

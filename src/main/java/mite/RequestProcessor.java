@@ -18,9 +18,9 @@ final class RequestProcessor
     /**
      * This will really handle the request.
      */
-    private final RequestHandler handler;
+    private final SocketRequestHandler handler;
 
-    public RequestProcessor(Socket connection, RequestHandler handler) throws IOException {
+    public RequestProcessor(Socket connection, SocketRequestHandler handler) throws IOException {
         this.connection = connection;
         this.handler    = handler;
         out    = connection.getOutputStream();

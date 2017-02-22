@@ -25,14 +25,4 @@ static class TestHandler extends AbstractRequestHandler {
         assertTrue(new TestHandler() instanceof HTTPRequestHandler);
     }
 
-    // @Test
-    // public void handles_returns_false_when_request_parsing_fails() {
-    //     HTTPRequestHandler handler = new TestHandler();
-    //     assertFalse(handler.handles(""));
-    //     assertFalse(handler.handles("What?"));
-    //     assertFalse(handler.handles("What the?"));
-    //     assertFalse(handler.handles("What the smeg?"));
-    //     assertFalse(handler.handles("Dude, this is so not valid."));
-    // }
-
 }

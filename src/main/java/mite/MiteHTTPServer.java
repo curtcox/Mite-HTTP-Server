@@ -1,6 +1,5 @@
 package mite;
 
-import mite.handlers.*;
 import java.io.*;
 import java.net.*;
 import java.util.concurrent.*;
@@ -24,15 +23,9 @@ public final class MiteHTTPServer
         this.handler = handler;
     }
 
-    private static SocketRequestHandler handler() {
-        return SocketRequestHandler.of(
-                 CompositeRequestHandler.of(
-                     EchoRequestHandler.of(), UnsupportedRequestHandler.of()));
-    }
-
-    private static void startListeningOnPort(int port) throws IOException {
+    static void startListeningOnPort(int port,HTTPRequestHandler http) throws IOException {
         log("Accepting connections on port " + port);
-        MiteHTTPServer server = new MiteHTTPServer(port,handler());
+        MiteHTTPServer server = new MiteHTTPServer(port,SocketRequestHandler.of(http));
         server.start();
     }
 
@@ -45,10 +38,6 @@ public final class MiteHTTPServer
                 log(e);
             }
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-        startListeningOnPort(8000);
     }
 
     private static void log(Throwable t) {

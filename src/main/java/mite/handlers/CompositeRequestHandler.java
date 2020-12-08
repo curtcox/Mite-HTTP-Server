@@ -5,6 +5,7 @@ import java.io.*;
 
 /**
  * Handler that defers to other handlers.
+ * It uses the first handler that says it can handle the given request.
  */
 public final class CompositeRequestHandler
     implements HTTPRequestHandler

@@ -22,9 +22,7 @@ public final class UnsupportedRequestHandler
                     "<BODY> <H1>HTTP Error 501: Not Implemented</H1> </BODY>" +
             "</HTML>";
 
-    public HTTPResponse handle(HTTPRequest request)
-        throws IOException
-    {
+    public HTTPResponse handle(HTTPRequest request) {
         return HTTPResponse.of(NOT_IMPLEMENTED_PAGE,StatusCode.NOT_IMPLEMENTED);
     }
 

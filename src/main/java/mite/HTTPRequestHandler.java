@@ -4,6 +4,7 @@ import java.io.*;
 
 /**
  * This interface is used to define what a HTTP Server does.
+ * Implementors may want to use AbstractRequestHandler, so that they only need implement handle.
  */
 public interface HTTPRequestHandler {
 

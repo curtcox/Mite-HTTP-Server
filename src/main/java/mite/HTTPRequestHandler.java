@@ -1,7 +1,6 @@
 package mite;
 
 import java.io.*;
-import java.net.*;
 
 /**
  * This interface is used to define what a HTTP Server does.

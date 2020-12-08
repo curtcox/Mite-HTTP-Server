@@ -25,7 +25,6 @@ public final class HTTPVersion {
         final StringTokenizer st = new StringTokenizer(request);
         st.nextToken(); // we don't care about the method
         st.nextToken(); // or what is being requested
-        String version = null;
         if (st.hasMoreTokens()) {
             return st.nextToken();
         }

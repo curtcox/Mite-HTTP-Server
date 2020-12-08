@@ -2,7 +2,6 @@ package mite.handlers;
 
 import mite.*;
 import java.io.*;
-import java.net.*;
 
 /**
  * To report to the client that the request is unsupported.

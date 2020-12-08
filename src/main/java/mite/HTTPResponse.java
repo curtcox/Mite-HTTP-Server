@@ -1,7 +1,5 @@
 package mite;
 
-import java.util.*;
-
 public final class HTTPResponse {
 
     public final String page;

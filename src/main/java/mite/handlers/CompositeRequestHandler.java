@@ -2,7 +2,6 @@ package mite.handlers;
 
 import mite.*;
 import java.io.*;
-import java.net.*;
 
 /**
  * Handler that defers to other handlers.

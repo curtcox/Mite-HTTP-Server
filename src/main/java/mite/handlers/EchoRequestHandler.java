@@ -1,7 +1,6 @@
 package mite.handlers;
 
 import mite.*;
-import java.io.*;
 
 /**
  * Simple handler mostly for demonstration and debugging.
@@ -16,7 +15,7 @@ public final class EchoRequestHandler
 
     private EchoRequestHandler() {}
 
-    public HTTPResponse handle(HTTPRequest request) throws IOException {
+    public HTTPResponse handle(HTTPRequest request) {
         String R = "\r";
         String html = "<html>" +
                   "<body>" +

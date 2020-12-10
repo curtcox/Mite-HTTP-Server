@@ -15,7 +15,7 @@ final class SocketRequestHandler {
       return new SocketRequestHandler(handler);
   }
 
-  final void handle(String request, Socket socket, InputStream in, OutputStream out) throws IOException {
+  final void handle(String request, Socket socket, OutputStream out) throws IOException {
       HTTPRequest httpRequest = HTTPRequest.parse(request);
       Writer           writer = new OutputStreamWriter(out);
       HTTPResponse   response = handler.handle(httpRequest);

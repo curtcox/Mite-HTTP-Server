@@ -45,7 +45,7 @@ final class RequestProcessor
         String request = readRequest();
         log(request);
         if (handler.handles(request)) {
-            handler.handle(request,connection,in,out);
+            handler.handle(request,connection,out);
             return;
         }
         throw new UnsupportedOperationException(request);

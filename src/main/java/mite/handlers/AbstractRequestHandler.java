@@ -10,8 +10,12 @@ public abstract class AbstractRequestHandler
         try {
             return handle(request)!=null;
         } catch (Throwable t) {
+            debug(t);
             return false;
         }
     }
 
+    private void debug(Throwable t) {
+        t.printStackTrace();
+    }
 }

@@ -9,7 +9,8 @@ public final class HTTPVersion {
 
     public final boolean mimeAware;
     public final String version;
-    public static final HTTPVersion Unknown = new HTTPVersion("Unknown",false);
+    private static final String UNKNOWN = "Unknown";
+    public static final HTTPVersion Unknown = new HTTPVersion(UNKNOWN,false);
 
     private HTTPVersion(String version,boolean mimeAware) {
         this.version = version;
@@ -28,7 +29,7 @@ public final class HTTPVersion {
         if (st.hasMoreTokens()) {
             return st.nextToken();
         }
-        return "Unknown";
+        return UNKNOWN;
     }
 
     public String toString() {

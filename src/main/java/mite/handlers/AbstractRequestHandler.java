@@ -6,7 +6,7 @@ public abstract class AbstractRequestHandler
     implements HTTPRequestHandler
 {
 
-    public boolean handles(HTTPRequest request) {
+    public final boolean handles(HTTPRequest request) {
         try {
             return handle(request)!=null;
         } catch (Throwable t) {

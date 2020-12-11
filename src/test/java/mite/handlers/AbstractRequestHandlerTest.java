@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class AbstractRequestHandlerTest {
 
-static class TestHandler extends AbstractRequestHandler {
+static class TestHandler implements HTTPRequestHandler {
 
     @Override
     public boolean handles(HTTPRequest request) {

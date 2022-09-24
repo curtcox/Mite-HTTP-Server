@@ -1,6 +1,5 @@
 apply plugin: 'java'
 apply plugin: 'application'
-apply plugin: 'maven'
 apply plugin: 'signing'
 
 sourceCompatibility = 1.7
@@ -39,58 +38,9 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
-
 test {
     testLogging {
         events "passed", "skipped", "failed", "standardOut", "standardError"
         outputs.upToDateWhen {false}
     }
-}
-
-uploadArchives {
-  repositories {
-    mavenDeployer {
-      // beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-//        authentication(userName: ossrhUsername, password: ossrhPassword)
-      }
-
-      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-//        authentication(userName: ossrhUsername, password: ossrhPassword)
-      }
-
-      pom.project {
-        name 'Mite'
-        packaging 'jar'
-
-        description 'Minimal HTTP server.'
-        url 'https://github.com/curtcox/Mite-HTTP-Server/'
-
-        scm {
-          connection 'https://github.com/curtcox/Mite-HTTP-Server/'
-          developerConnection 'https://github.com/curtcox/Mite-HTTP-Server/'
-          url 'https://github.com/curtcox/Mite-HTTP-Server/'
-        }
-
-        licenses {
-          license {
-            name 'Mite License'
-            url 'https://github.com/curtcox/Mite-HTTP-Server/blob/master/LICENSE'
-          }
-        }
-
-        developers {
-          developer {
-            id 'curtcox'
-            name 'Curt Cox'
-            email 'curtcox@gmail.com'
-          }
-        }
-      }
-    }
-  }
 }

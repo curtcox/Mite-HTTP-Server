@@ -1,6 +1,7 @@
 build
 target
 .gradle
+.idea
 *.class
 
 # Mobile Tools for Java (J2ME)
